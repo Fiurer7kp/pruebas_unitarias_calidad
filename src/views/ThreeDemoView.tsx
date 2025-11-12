@@ -29,7 +29,7 @@ export default function ThreeDemoView() {
     let renderer: THREE.WebGLRenderer | null = null;
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true });
-    } catch (e) {
+    } catch {
       setSupported(false);
       return;
     }
