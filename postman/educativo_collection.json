@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "Educativo Multimedia – Colección",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Curiosidad Matemática",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://numbersapi.com/random/math",
+          "protocol": "http",
+          "host": ["numbersapi", "com"],
+          "path": ["random", "math"]
+        }
+      }
+    },
+    {
+      "name": "Clima (Open-Meteo)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://api.open-meteo.com/v1/forecast?latitude=4.65&longitude=-74.1&hourly=temperature_2m",
+          "protocol": "https",
+          "host": ["api", "open-meteo", "com"],
+          "path": ["v1", "forecast"],
+          "query": [
+            {"key": "latitude", "value": "4.65"},
+            {"key": "longitude", "value": "-74.1"},
+            {"key": "hourly", "value": "temperature_2m"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Países (RestCountries)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://restcountries.com/v3.1/all",
+          "protocol": "https",
+          "host": ["restcountries", "com"],
+          "path": ["v3.1", "all"]
+        }
+      }
+    }
+  ]
+}

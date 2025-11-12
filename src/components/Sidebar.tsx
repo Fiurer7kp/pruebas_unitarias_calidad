@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCalculator, FaShapes, FaPalette } from "react-icons/fa";
+import { FaHome, FaCalculator, FaShapes, FaBrain } from "react-icons/fa";
 
 interface SidebarItem {
   label: string;
@@ -12,7 +12,7 @@ const mainItems: SidebarItem[] = [
   { label: "Inicio", route: "/", icon: <FaHome /> },
   { label: "Matemáticas", route: "/matematicas", icon: <FaCalculator /> },
   { label: "Ciencias Naturales", route: "/ciencias", icon: <FaShapes /> },
-  { label: "Arte", route: "/arte", icon: <FaPalette /> },
+  { label: "Pensamiento Lógico", route: "/logico", icon: <FaBrain /> },
 ];
 
 export default function Sidebar() {
@@ -33,7 +33,7 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="hidden md:block w-full md:w-[240px] border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+    <aside className="hidden md:block w-full md:w-[260px] border-r border-slate-200 dark:border-slate-800 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       <div className="p-3 space-y-1">
 
         {/* Menú Principal Simplificado */}
@@ -45,7 +45,15 @@ export default function Sidebar() {
           Menú Educativo
           <span>{openMain ? "▲" : "▼"}</span>
         </button>
-        {openMain && <div className="pl-4 space-y-1">{mainItems.map(renderNavItem)}</div>}
+        {openMain && (
+          <div className="pl-4 space-y-2">
+            {mainItems.map((item, idx) => (
+              <div key={item.route} className={"rounded-xl p-1 " + (idx === 0 ? "bg-gradient-to-r from-cyan-500/30 to-sky-500/10" : idx === 1 ? "bg-gradient-to-r from-emerald-500/30 to-green-500/10" : idx === 2 ? "bg-gradient-to-r from-violet-500/30 to-fuchsia-500/10" : "bg-gradient-to-r from-amber-500/30 to-orange-500/10") }>
+                {renderNavItem(item)}
+              </div>
+            ))}
+          </div>
+        )}
 
       </div>
     </aside>

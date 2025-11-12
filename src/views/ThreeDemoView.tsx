@@ -1,18 +1,31 @@
 // src/views/ThreeDemoView.tsx
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 export default function ThreeDemoView() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const cubeRef = useRef<THREE.Mesh | null>(null);
+  const [supported, setSupported] = useState(true);
 
   useEffect(() => {
     if (!stageRef.current) return;
 
+    const ua = (typeof navigator !== "undefined" && navigator.userAgent) || "";
+    if (ua.toLowerCase().includes("jsdom")) {
+      setSupported(false);
+      return;
+    }
+
     const stage = stageRef.current;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    let renderer: THREE.WebGLRenderer | null = null;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+    } catch (e) {
+      setSupported(false);
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(stage.clientWidth, stage.clientHeight);
     renderer.setClearColor(0xf8fafc, 1); // slate-50-like
@@ -49,7 +62,7 @@ export default function ThreeDemoView() {
       if (!running) return;
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.015;
-      renderer.render(scene, camera);
+      renderer!.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
@@ -68,9 +81,9 @@ export default function ThreeDemoView() {
     // Cleanup
     return () => {
       running = false;
-      renderer.dispose();
+      renderer?.dispose();
       ro.disconnect();
-      stage.removeChild(renderer.domElement);
+      renderer && stage.removeChild(renderer.domElement);
     };
   }, []);
 
@@ -116,11 +129,17 @@ export default function ThreeDemoView() {
       </div>
 
       {/* Canvas container */}
-      <div
-        ref={stageRef}
-        className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm"
-        style={{ height: "420px", position: "relative" }}
-      />
+      {supported ? (
+        <div
+          ref={stageRef}
+          className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm"
+          style={{ height: "420px", position: "relative" }}
+        />
+      ) : (
+        <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+          <p className="text-slate-700 dark:text-slate-200">Este dispositivo no soporta WebGL en pruebas. Observa el video y la guía.</p>
+        </div>
+      )}
     </div>
   );
 }

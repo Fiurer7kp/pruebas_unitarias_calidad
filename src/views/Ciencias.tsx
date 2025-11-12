@@ -1,15 +1,39 @@
 import React from "react";
+import ThreeDemoView from "./ThreeDemoView";
+import Quiz from "../components/Quiz";
 
 const Ciencias: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-6">
-        🐘 Ciencias Naturales
-      </h1>
-      <p className="text-slate-600 dark:text-slate-300 mb-8">
-        Quiz de animales - En desarrollo
-      </p>
-      {/* Aquí irá el quiz después */}
+    <div className="max-w-5xl mx-auto p-2">
+      <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4">🌿 Ciencias Naturales</h1>
+      <p className="text-slate-600 dark:text-slate-300 mb-6">Explora formas en 3D y mira un video corto sobre el ciclo del agua.</p>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-3">
+          <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
+            <h2 className="font-semibold text-slate-700 dark:text-slate-200">Guía rápida</h2>
+            <ul className="mt-2 list-disc list-inside text-slate-600 dark:text-slate-300">
+              <li>Usa los botones para cambiar el color del cubo.</li>
+              <li>Observa cómo rota y piensa en sus caras y vértices.</li>
+              <li>¿Qué otras figuras conoces? Prisma, esfera, pirámide.</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
+            <h2 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Video educativo</h2>
+            <video controls className="w-full rounded-lg">
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+              Tu navegador no soporta el elemento de video.
+            </video>
+          </div>
+
+          <Quiz />
+        </div>
+
+        <div>
+          <ThreeDemoView />
+        </div>
+      </div>
     </div>
   );
 };

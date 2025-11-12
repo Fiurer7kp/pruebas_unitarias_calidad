@@ -7,7 +7,7 @@ import HomePage from "../views/HomePage";
 // Nuevas vistas educativas
 import Matematicas from "../views/Matematicas";
 import Ciencias from "../views/Ciencias";
-import Arte from "../views/Arte";
+import Logico from "../views/Logico";
 
 export default function AppRoutes() {
   return (
@@ -16,7 +16,7 @@ export default function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="matematicas" element={<Matematicas />} />
         <Route path="ciencias" element={<Ciencias />} />
-        <Route path="arte" element={<Arte />} />
+        <Route path="logico" element={<Logico />} />
       </Route>
     </Routes>
   );
