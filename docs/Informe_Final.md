@@ -33,6 +33,7 @@
 - Framework: `Vite`. Comando: `npm run build`. Directorio: `dist`.
 - URL pública: [Completar]
 - Evidencias: capturas del dashboard de Vercel y sitio operativo.
+ - Última actualización de documento: 2025-11-12
 
 ## Pruebas Unitarias Implementadas
 - Herramientas: Jest + React Testing Library (`jest.config.js:2-9`).
