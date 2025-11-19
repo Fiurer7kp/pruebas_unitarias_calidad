@@ -6,14 +6,17 @@ const Card = ({ title, subtitle, to, color }: { title: string; subtitle: string;
     initial={{ y: 10, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="rounded-2xl p-5 shadow-lg border border-slate-200 dark:border-slate-800"
+    className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800"
     style={{ background: color }}
   >
-    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{title}</h3>
-    <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{subtitle}</p>
-    <Link to={to} className="inline-block mt-4 px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">
-      Ir
-    </Link>
+    <div className="absolute inset-0 bg-black/45" />
+    <div className="relative p-5">
+      <h3 className="text-lg font-bold text-white">{title}</h3>
+      <p className="text-sm text-slate-100 mt-1">{subtitle}</p>
+      <Link to={to} className="inline-block mt-4 px-4 py-2 rounded-xl bg-white text-slate-900 hover:bg-slate-100">
+        Ir
+      </Link>
+    </div>
   </motion.div>
 );
 
