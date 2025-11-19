@@ -1,6 +1,7 @@
 import React from "react";
 import ThreeDemoView from "./ThreeDemoView";
 import Quiz from "../components/Quiz";
+import { VIDEOS } from "../videos";
 
 const Ciencias: React.FC = () => {
   return (
@@ -20,9 +21,9 @@ const Ciencias: React.FC = () => {
           </div>
 
           <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
-            <h2 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Video educativo</h2>
+            <h2 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Video: Figuras 3D para niños</h2>
             <video controls className="w-full rounded-lg">
-              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+              <source src={VIDEOS.science} type="video/mp4" />
               Tu navegador no soporta el elemento de video.
             </video>
           </div>

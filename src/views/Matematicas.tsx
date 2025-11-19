@@ -1,6 +1,7 @@
 import React from "react";
 import CalculadoraBasica from "../components/CalculadoraBasica";
 import MultiplicationTable from "../components/MultiplicationTable";
+import { VIDEOS } from "../videos";
 
 const Matematicas: React.FC = () => {
   return (
@@ -25,6 +26,15 @@ const Matematicas: React.FC = () => {
         <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
           <MultiplicationTable />
         </div>
+      </div>
+
+      <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
+        <h2 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Video: Multiplicación y suma para niños</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-3">Mira el video y después prueba los ejemplos con la calculadora y las tablas.</p>
+        <video controls className="w-full rounded-lg">
+          <source src={VIDEOS.math} type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
       </div>
     </div>
   );

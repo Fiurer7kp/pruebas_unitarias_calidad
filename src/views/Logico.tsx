@@ -53,6 +53,14 @@ export default function Logico() {
           <div className="rounded-lg border border-emerald-200 dark:border-emerald-800 p-4 bg-emerald-50 dark:bg-emerald-900/20">
             <p className="font-medium text-emerald-700 dark:text-emerald-300">Puntaje: {score}</p>
           </div>
+          <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
+            <h2 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Video: Patrones y series para niños</h2>
+            <p className="text-slate-600 dark:text-slate-300 mb-3">Mira el video y luego intenta la secuencia.</p>
+            <video controls className="w-full rounded-lg">
+              <source src={VIDEOS.logic} type="video/mp4" />
+              Tu navegador no soporta el elemento de video.
+            </video>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -96,3 +104,4 @@ export default function Logico() {
   );
 }
 
+import { VIDEOS } from "../videos";
