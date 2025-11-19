@@ -176,3 +176,35 @@ flowchart TD
   - Observa la secuencia y elige el siguiente número.
   - Suma puntos al acertar, se guardan automáticamente.
   - Reinicia para comenzar de nuevo.
+## Explicación del Código (para exposición)
+- Entrada y enrutamiento
+  - `src/App.tsx:6-8`: envuelve la app en `BrowserRouter` y renderiza `AppRoutes`.
+  - `src/routes/AppRoutes.tsx:15-20`: define rutas SPA: `/` (Home), `/matematicas`, `/ciencias`, `/logico` dentro del `Layout`.
+- Layout y navegación
+  - `src/components/Layout.tsx:7-19`: estructura general con `Sidebar`, `Navbar` y `<Outlet />` para cargar cada vista.
+  - `src/components/Sidebar.tsx:11-16`: menú con las opciones del proyecto (Inicio, Matemáticas, Ciencias Naturales, Pensamiento Lógico).
+  - `src/components/Navbar.tsx:17-23`: botón de tema que alterna modo claro/oscuro y persiste en `localStorage`.
+- Home y tarjetas
+  - `src/views/HomePage.tsx`: hero con título y descripción; usa `HeroCards`.
+  - `src/components/HeroCards.tsx:4-21,23-31`: tarjetas animadas (`framer-motion`), overlay para contraste y enlaces a módulos.
+- Matemáticas
+  - `src/views/Matematicas.tsx:7-29`: guía rápida y dos bloques: calculadora y tablas.
+  - `src/components/CalculadoraBasica.tsx:9-31`: lógica aritmética y validaciones (números válidos, división por cero).
+  - `src/components/MultiplicationTable.tsx:8-13,35-47`: genera y muestra la tabla del número elegido.
+- Ciencias Naturales (multimedia)
+  - `src/views/Ciencias.tsx:22-28,33-35`: video educativo y componente 3D interactivo.
+  - `src/views/ThreeDemoView.tsx:61-87`: crea figura según selector (cubo, esfera, cono, toro, plano, tetraedro).
+  - `src/views/ThreeDemoView.tsx:93-103`: animación con control de velocidad.
+  - `src/views/ThreeDemoView.tsx:125-134`: cambio de color y color aleatorio.
+  - `src/views/ThreeDemoView.tsx:171-241`: toolbar, selector de figuras y contenedor del canvas.
+- Pensamiento Lógico
+  - `src/views/Logico.tsx:10-15,21-28`: calcula la opción correcta, actualiza secuencia y puntaje persistente.
+  - `src/views/Logico.tsx:41-55,76-92`: guía y UI de interacción (botones de opciones y reinicio).
+- Pruebas unitarias y configuración
+  - `src/setupTests.ts:3,15-27,29-37,39-51`: configuración de entorno de pruebas (jest-dom, `matchMedia`, `localStorage`).
+  - `src/setupTests.ts:53-60`: mock de `ResizeObserver` para que las pruebas en CI no fallen en jsdom.
+- CI/CD (GitHub Actions)
+  - `/.github/workflows/unitaria.yml:28-60`: matriz Node 18/20/22; pasos `npm ci`, `type-check`, `lint`, `test --ci`, `build` y publicación de `dist`.
+  - `/.github/workflows/ci.yml:23-52`: pipeline paralelo con misma secuencia para evidencias.
+- Despliegue (Vercel)
+  - `vercel.json`: rewrites SPA para que rutas internas (`/matematicas`, `/ciencias`, `/logico`) funcionen en producción.
