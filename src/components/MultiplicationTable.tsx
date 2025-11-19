@@ -11,12 +11,20 @@ export default function MultiplicationTable() {
     console.log(result);
     setTable(result);
   };
+  const speakTable = () => {
+    const synth = (window as any).speechSynthesis;
+    if (!synth || number === null || isNaN(number) || table.length === 0) return;
+    const text = table.map((v, i) => `${number} por ${i + 1} igual ${v}`).join(". ");
+    const u = new (window as any).SpeechSynthesisUtterance(text);
+    synth.cancel();
+    synth.speak(u);
+  };
 
   return (
     <div className="h-full w-full p-6">
       <h1 className="text-2xl font-bold mb-4">Tablas de Multiplicar</h1>
 
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-col sm:flex-row gap-2 mb-4">
         <input
           type="number"
           className="border rounded-lg p-2 w-32"
@@ -30,6 +38,14 @@ export default function MultiplicationTable() {
         >
           Generar
         </button>
+        {table.length > 0 && (
+          <button
+            onClick={speakTable}
+            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+          >
+            Leer
+          </button>
+        )}
       </div>
 
       {table.length > 0 && (
