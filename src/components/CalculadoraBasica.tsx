@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const CalculadoraBasica: React.FC = () => {
   const [num1, setNum1] = useState<string>("");
