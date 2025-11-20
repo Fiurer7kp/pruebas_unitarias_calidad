@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCalculator, FaShapes, FaBrain } from "react-icons/fa";
+import { FaHome, FaCalculator, FaShapes, FaGlobeAmericas } from "react-icons/fa";
 
 interface SidebarItem {
   label: string;
@@ -12,7 +12,7 @@ const mainItems: SidebarItem[] = [
   { label: "Inicio", route: "/", icon: <FaHome /> },
   { label: "Matemáticas", route: "/matematicas", icon: <FaCalculator /> },
   { label: "Ciencias Naturales", route: "/ciencias", icon: <FaShapes /> },
-  { label: "Pensamiento Lógico", route: "/logico", icon: <FaBrain /> },
+  { label: "Sociales", route: "/sociales", icon: <FaGlobeAmericas /> },
 ];
 
 export default function Sidebar() {

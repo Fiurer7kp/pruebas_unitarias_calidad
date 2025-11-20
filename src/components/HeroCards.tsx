@@ -23,8 +23,8 @@ const Card = ({ title, subtitle, to, color }: { title: string; subtitle: string;
 export default function HeroCards() {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <Card title="Ciencias Naturales" subtitle="Explora 3D y video" to="/ciencias" color="linear-gradient(135deg,#e0f2fe,#e9d5ff)" />
-      <Card title="Pensamiento Lógico" subtitle="Patrones y secuencias" to="/logico" color="linear-gradient(135deg,#dcfce7,#fef9c3)" />
+      <Card title="Ciencias Naturales" subtitle="Sistema Solar 3D" to="/ciencias" color="linear-gradient(135deg,#e0f2fe,#e9d5ff)" />
+      <Card title="Sociales" subtitle="Mapa de Colombia" to="/sociales" color="linear-gradient(135deg,#dcfce7,#fef9c3)" />
       <Card title="Matemáticas" subtitle="Calculadora y tablas" to="/matematicas" color="linear-gradient(135deg,#fde68a,#fecaca)" />
     </div>
   );
