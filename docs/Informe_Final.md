@@ -1,8 +1,8 @@
-# Proyecto Educativo Multimedia – Colegio Mentes Creativas
+# Proyecto API para aprendizaje de niños – Frontend React + Vite
 
 ## Portada
 - Nombre del proyecto: Aplicativo Educativo Multimedia (React + Vite)
-- Integrantes del grupo: [Completar]
+- Integrantes del grupo: Sebastian Coral, Daniela Torres
 - Profesor: Mg. Gustavo Sánchez Rodríguez
 - Programa: [Completar]
 - Ciudad: [Completar]
@@ -170,7 +170,7 @@ flowchart TD
   - Observa el video informativo y comenta qué aprendiste.
   - En pruebas, si no se ve el 3D, aparece un mensaje de guía.
 
-### Pensamiento Lógico (`src/views/Logico.tsx`)
+### Ciencias Sociales (`src/views/CienciasSociales.tsx`)
 - Objetivo: completar patrones de números.
 - Cómo usar:
   - Observa la secuencia y elige el siguiente número.
@@ -218,7 +218,7 @@ flowchart TD
 - Layout y navegación
   - `src/components/Layout.tsx:1-40`: `Navbar`, `Sidebar` y `<Outlet />`.
   - `src/components/Sidebar.tsx:41-101`: acordeón de grupos y enlaces.
-  - `src/components/Navbar.tsx:25-47`: branding “API Educativa para Niños · Sebastian Coral & Daniela Torres” y botón de tema.
+  - `src/components/Navbar.tsx:25-47`: branding “API para aprendizaje de niños · Sebastian Coral & Daniela Torres” y botón de tema.
 - Home
   - `src/views/HomePage.tsx:23-49`: autores, botones con rutas y guía para niños.
 - Matemáticas
