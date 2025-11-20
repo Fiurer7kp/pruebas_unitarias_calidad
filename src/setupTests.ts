@@ -50,12 +50,3 @@ Object.defineProperty(document, "documentElement", {
 Object.defineProperty(document, "dispatchEvent", {
   value: jest.fn(),
 });
-
-// ResizeObserver no está presente en jsdom; se mockea para evitar fallos en componentes con 3D
-if (typeof (global as any).ResizeObserver === "undefined") {
-  (global as any).ResizeObserver = class {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  };
-}
