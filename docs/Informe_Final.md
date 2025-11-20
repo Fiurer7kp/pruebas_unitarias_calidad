@@ -1,8 +1,8 @@
-# Proyecto Educativo Multimedia – Colegio Mentes Creativas
+# Proyecto API para aprendizaje de niños – Frontend React + Vite
 
 ## Portada
 - Nombre del proyecto: Aplicativo Educativo Multimedia (React + Vite)
-- Integrantes del grupo: [Completar]
+- Integrantes del grupo: Sebastian Coral, Daniela Torres
 - Profesor: Mg. Gustavo Sánchez Rodríguez
 - Programa: [Completar]
 - Ciudad: [Completar]
@@ -170,7 +170,7 @@ flowchart TD
   - Observa el video informativo y comenta qué aprendiste.
   - En pruebas, si no se ve el 3D, aparece un mensaje de guía.
 
-### Pensamiento Lógico (`src/views/Logico.tsx`)
+### Ciencias Sociales (`src/views/CienciasSociales.tsx`)
 - Objetivo: completar patrones de números.
 - Cómo usar:
   - Observa la secuencia y elige el siguiente número.
@@ -208,3 +208,25 @@ flowchart TD
   - `/.github/workflows/ci.yml:23-52`: pipeline paralelo con misma secuencia para evidencias.
 - Despliegue (Vercel)
   - `vercel.json`: rewrites SPA para que rutas internas (`/matematicas`, `/ciencias`, `/logico`) funcionen en producción.
+
+---
+
+## Explicación del Código (actual)
+- Entrada y enrutamiento
+  - `src/App.tsx:1-24`: envuelve la app y renderiza `AppRoutes`.
+  - `src/routes/AppRoutes.tsx:15-22`: rutas: `/` (Home), `/matematicas/descomposicion`, `/ciencias-naturales`, `/ciclo-del-agua`, `/ciencias-sociales`.
+- Layout y navegación
+  - `src/components/Layout.tsx:1-40`: `Navbar`, `Sidebar` y `<Outlet />`.
+  - `src/components/Sidebar.tsx:41-101`: acordeón de grupos y enlaces.
+  - `src/components/Navbar.tsx:25-47`: branding “API para aprendizaje de niños · Sebastian Coral & Daniela Torres” y botón de tema.
+- Home
+  - `src/views/HomePage.tsx:23-49`: autores, botones con rutas y guía para niños.
+- Matemáticas
+  - `src/views/Descomposicion.tsx:31-149`: selector de figuras, elementos y fórmula de Euler.
+- Ciencias Naturales
+  - `src/views/CicloDelAgua.tsx`: partículas, controles y simulación.
+- Ciencias Sociales
+  - `src/views/CienciasSociales.tsx`: globo interactivo y marcadores.
+- Pruebas unitarias y configuración
+  - `jest.config.js:1-13`: ignora `e2e` y `.migracion_tmp/`.
+  - `src/setupTests.ts`: entorno de pruebas y mocks.
